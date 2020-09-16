@@ -1,38 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
-import {
-        BrowserRouter as Router,
-        Switch,
-        Route,
-        Link
-        } from "react-router-dom"
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Menu from './menu'
+import Burger from './burger'
 import Projects from '../pages/Projects'
 import Contact from '../pages/Contact'
 import About from '../pages/About'
 
-const NavList = styled.ul`
-  display: block;
-  background: green;
-  cursor: pointer;
-`
-const NavItem = styled.li`
-  display: block;
-  color: gray
-`
+const Nav = () => {
+  const [open, setOpen] = useState(false);
 
-const navItemsNames = ['Projects', 'About', 'Contact']
-
-const NavItems = (props) => {
-  const items = props.items.map((item) => <NavItem><Link to={item}>{item}</Link></NavItem>)
-  return items
-}
-
-function Nav() {
   return (
     <Router>
-      <NavList>
-        <NavItems items={navItemsNames}></NavItems>
-      </NavList>
+      <div>
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
+      </div>
+      
       <Switch>
         <Route path="/projects" exact>
           <Projects />
@@ -43,7 +26,6 @@ function Nav() {
         <Route path="/Contact">
           <Contact />
         </Route>
-        
       </Switch>
     </Router >
     
