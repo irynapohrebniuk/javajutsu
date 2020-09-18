@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 export const StyledProjectBlock = styled.div`
-  top: 2%;
   display: block;
-  width: 80%;
-  z-index: -1;
+  position: relative;
+  top: 2%;
+  width: 100%;
+  left: 8rem;
   background-color: green
 `
