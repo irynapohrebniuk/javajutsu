@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Menu from './menu'
 import Burger from './burger'
+import Logo from '../logo'
 import Projects from '../pages/Projects'
 import Contact from '../pages/Contact'
 import About from '../pages/About'
@@ -13,6 +14,7 @@ const Nav = () => {
     <Router>
       <div>
         <Burger open={open} setOpen={setOpen} />
+        <Logo />
         <Menu open={open} setOpen={setOpen} />
       </div>
       
