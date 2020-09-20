@@ -18,7 +18,6 @@ export const GlobalStyles = createGlobalStyle`
     height: 100vh;
     justify-content: left;
     text-rendering: optimizeLegibility;
-    width: 90%;
   }
 
   `

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledLogo = styled.button`
   position: absolute;
   top: 2%;
-  left: 6rem;
+  left: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
