@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { useOnClickOutside } from '../../hooks';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Menu from './menu'
 import Burger from './burger'
-import Logo from '../logo'
+import { StyledLogo } from '../../styledComponents/logo.styled'
 import Projects from '../pages/Projects'
 import Contact from '../pages/Contact'
 import About from '../pages/About'
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const node = useRef(); 
+  useOnClickOutside(node, () => setOpen(false));
 
   return (
     <Router>
-      <div>
+      <div ref={node}>
         <Burger open={open} setOpen={setOpen} />
-        <Logo />
-        <Menu open={open} setOpen={setOpen} />
+        <StyledLogo open={open} />
       </div>
-      
+      <Menu open={open} setOpen={setOpen} />
       <Switch>
         <Route path="/projects" exact>
           <Projects />

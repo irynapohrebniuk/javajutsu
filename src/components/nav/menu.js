@@ -5,7 +5,7 @@ import { bool } from 'prop-types'
 const navItemsNames = ['Projects', 'About', 'Contact']
 
 const NavItems = (props) => {
-  const items = props.items.map((item) => <NavItem><StyledLink to={'/'+ item}>{item}</StyledLink></NavItem>)
+  const items = props.items.map((item) => <NavItem key={'navItem_'+item}><StyledLink to={'/'+ item}>{item}</StyledLink></NavItem>)
   return items
 }
 

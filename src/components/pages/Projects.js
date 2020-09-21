@@ -1,16 +1,29 @@
 import React from 'react'
 import ProjectBlock from '../projectBlock'
 import StyledContainer from '../../styledComponents/containerStyled'
-import projectsDB from '../../projectsDB'
+import { projects } from '../../db'
 
 function Projects() {
-    return (
-      <StyledContainer>
+  return (
+    <div>
+      <StyledContainer direction='column'>
         {
-          projectsDB.map((project) => <ProjectBlock title={project.title} info={project.info} tech={project.tech} links={project.links} />)
+          projects.map((project, index) =>
+            <div>
+              <ProjectBlock
+                title={project.title}
+                info={project.info}
+                tech={project.tech}
+                links={project.links}
+                key={'project_' + index}>
+              </ProjectBlock>
+              <img src={project.img} alt={project.title} width='392px' />
+            </div>
+          )
         }
-      </StyledContainer>    
-    )
-  }
+      </StyledContainer>
+    </div>
+  )
+}
 
 export default Projects
