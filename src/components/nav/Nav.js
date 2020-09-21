@@ -17,11 +17,13 @@ const Nav = () => {
     <Router>
       <div ref={node}>
         <Burger open={open} setOpen={setOpen} />
-        <StyledLogo open={open} />
+        <Menu open={open} setOpen={setOpen} />
       </div>
-      <Menu open={open} setOpen={setOpen} />
+      
+      <StyledLogo />
+      
       <Switch>
-        <Route path="/projects" exact>
+        <Route path="/projects">
           <Projects />
         </Route>
         <Route path="/about">

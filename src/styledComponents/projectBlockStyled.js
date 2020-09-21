@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 
 const StyledProjectBlock = styled.div`
-  padding: 2%;
-  border: 1px solid green;
-  margin: 2%;
-  flex-direction: row
+  flex-direction: row;
 `;
 
 const StyledProjectImage = styled.img`
-  width: 400px;
-  height: auto;
+  width: auto;
 `;
 
-export { StyledProjectBlock, StyledProjectImage }
+const StyledProjectList = styled.ul`
+  list-style-type: square;
+`
+
+const StyledProjectListItem = styled.li`
+  display: block;
+  &::before {
+  content: "\2022";
+  color: ${({ theme }) => theme.primaryLight};
+  }
+`
+
+export { StyledProjectBlock, StyledProjectImage, StyledProjectList, StyledProjectListItem }

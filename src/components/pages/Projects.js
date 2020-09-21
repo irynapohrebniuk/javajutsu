@@ -5,24 +5,26 @@ import { projects } from '../../db'
 
 function Projects() {
   return (
-    <div>
-      <StyledContainer direction='column'>
+    <StyledContainer direction='column' position='absolute'>
+      <div>
         {
           projects.map((project, index) =>
-            <div>
+            <StyledContainer direction='row' position='relative'>
               <ProjectBlock
                 title={project.title}
                 info={project.info}
                 tech={project.tech}
                 links={project.links}
-                key={'project_' + index}>
+                key={'project_' + index}
+                >
               </ProjectBlock>
-              <img src={project.img} alt={project.title} width='392px' />
-            </div>
+              <img src={project.imgMobile} alt={project.title} width='392px' />
+            </StyledContainer>
           )
         }
-      </StyledContainer>
-    </div>
+      </div>
+    </StyledContainer>
+
   )
 }
 

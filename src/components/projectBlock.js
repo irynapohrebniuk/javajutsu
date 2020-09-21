@@ -1,18 +1,23 @@
-import React from 'react'
-import { StyledProjectBlock } from '../styledComponents/projectBlockStyled'
+import React, {Link} from 'react'
+import { StyledProjectBlock, StyledProjectList, StyledProjectListItem } from '../styledComponents/projectBlockStyled'
 import { StyledInfo } from '../styledComponents/infoStyled'
 import { StyledTech } from '../styledComponents/techStyled'
 import { StyledProjectLink } from '../styledComponents/projectLinkStyled'
 
 const ProjectBlock = (props) => {
-    
+    let {github, firebase} = props.links
     return (
         <StyledProjectBlock>
-            <h2>{props.title}</h2>
-            <StyledInfo><h2>Info:</h2> {props.info} </StyledInfo>
-            <StyledTech><h2>Technologies:</h2> {props.tech} </StyledTech>
-            <StyledProjectLink><h2>Github:</h2> {props.links} </StyledProjectLink>
-            <StyledProjectLink><h2>Demo:</h2> {props.links} </StyledProjectLink>
+            <h1>{props.title}</h1>
+            <StyledInfo> {props.info} </StyledInfo>
+            <StyledTech>
+                <h2>Technologies:</h2> 
+                <StyledProjectList>
+                     {props.tech.map((item, index) => <StyledProjectListItem key={'tech_'+index}>{item}</StyledProjectListItem>)}
+                </StyledProjectList>
+            </StyledTech>
+            <StyledProjectLink><h2>Github:</h2>  {github} </StyledProjectLink>
+            <StyledProjectLink><h2>Demo:</h2> {firebase}</StyledProjectLink>
         </StyledProjectBlock>
     )
 }
