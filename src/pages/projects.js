@@ -1,12 +1,13 @@
 import React from 'react'
-import ProjectBlock from '../projectBlock'
-import StyledContainer from '../../styledComponents/containerStyled'
-import { projects } from '../../db'
+import ProjectBlock from '../components/block'
+import StyledContainer from '../styledComponents/container.styled'
+import StyledPage from '../styledComponents/page.styled'
+import { projects } from '../db'
 
 function Projects() {
   return (
-    <StyledContainer direction='column' position='absolute'>
-      <div>
+    
+      <StyledPage>
         {
           projects.map((project, index) =>
             <StyledContainer direction='row' position='relative'>
@@ -22,9 +23,7 @@ function Projects() {
             </StyledContainer>
           )
         }
-      </div>
-    </StyledContainer>
-
+      </StyledPage>
   )
 }
 

@@ -1,13 +1,30 @@
-import React, {Link} from 'react'
-import { StyledProjectBlock, StyledProjectList, StyledProjectListItem } from '../styledComponents/projectBlockStyled'
-import { StyledInfo } from '../styledComponents/infoStyled'
-import { StyledTech } from '../styledComponents/techStyled'
-import { StyledProjectLink } from '../styledComponents/projectLinkStyled'
+import React from 'react'
+import { StyledInfo } from '../styledComponents/info.styled'
+import { StyledTech } from '../styledComponents/tech.styled'
+import { StyledProjectLink } from '../styledComponents/projectLink.styled'
+import styled from 'styled-components'
+
+const StyledBlock = styled.div`
+  flex-direction: row;
+`;
+
+
+const StyledProjectList = styled.ul`
+  list-style-type: square;
+`
+
+const StyledProjectListItem = styled.li`
+  display: block;
+  &::before {
+  content: "\2022";
+  color: ${({ theme }) => theme.primaryLight};
+  }
+`
 
 const ProjectBlock = (props) => {
     let {github, firebase} = props.links
     return (
-        <StyledProjectBlock>
+        <StyledBlock>
             <h1>{props.title}</h1>
             <StyledInfo> {props.info} </StyledInfo>
             <StyledTech>
@@ -18,7 +35,7 @@ const ProjectBlock = (props) => {
             </StyledTech>
             <StyledProjectLink><h2>Github:</h2>  {github} </StyledProjectLink>
             <StyledProjectLink><h2>Demo:</h2> {firebase}</StyledProjectLink>
-        </StyledProjectBlock>
+        </StyledBlock>
     )
 }
 

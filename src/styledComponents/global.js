@@ -10,14 +10,22 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    /* align-items: center; */
     background: ${({ theme }) => theme.primaryDark};
     color: ${({ theme }) => theme.primaryLight};
-    display: flex;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    height: 100vh;
+    min-height: 100vh;
     justify-content: left;
-    text-rendering: optimizeLegibility;
+    font-size: 16px;
   }
+  
 
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    /* margin: 0 auto; */
+    min-height: 100vh;
+    align-content: stretch;
+    background-color: grey;
+  }
   `
