@@ -3,40 +3,63 @@ import { StyledInfo } from '../styledComponents/info.styled'
 import { StyledTech } from '../styledComponents/tech.styled'
 import { StyledProjectLink } from '../styledComponents/projectLink.styled'
 import styled from 'styled-components'
+import FirebaseIcon from './firebaseIcon'
+import GithubIcon from './githubIcon'
+import StyledContainer from '../styledComponents/container.styled'
 
 const StyledBlock = styled.div`
+  flex-basis: 30rem;
   flex-direction: row;
 `;
 
-
 const StyledProjectList = styled.ul`
   list-style-type: square;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 `
-
 const StyledProjectListItem = styled.li`
-  display: block;
+  padding: 5px;
   &::before {
   content: "\2022";
-  color: ${({ theme }) => theme.primaryLight};
+  color: ${({ theme }) => theme.primaryDark};
   }
 `
-
 const ProjectBlock = (props) => {
-    let {github, firebase} = props.links
-    return (
-        <StyledBlock>
-            <h1>{props.title}</h1>
-            <StyledInfo> {props.info} </StyledInfo>
-            <StyledTech>
-                <h2>Technologies:</h2> 
-                <StyledProjectList>
-                     {props.tech.map((item, index) => <StyledProjectListItem key={'tech_'+index}>{item}</StyledProjectListItem>)}
-                </StyledProjectList>
-            </StyledTech>
-            <StyledProjectLink><h2>Github:</h2>  {github} </StyledProjectLink>
-            <StyledProjectLink><h2>Demo:</h2> {firebase}</StyledProjectLink>
-        </StyledBlock>
-    )
+  let { github, firebase } = props.links
+  return (
+    <StyledBlock>
+      <h1>{props.title}</h1>
+      <StyledInfo> {props.info} </StyledInfo>
+      
+      <StyledTech>
+        <h3>Technologies:</h3>
+        <StyledProjectList>
+          {props.tech.map((item, index) =>
+            <StyledProjectListItem key={'tech_' + index}>
+              {item}
+            </StyledProjectListItem>)}
+        </StyledProjectList>
+      </StyledTech>
+
+      <StyledProjectLink>
+        <h3>Repository:</h3>
+        <StyledContainer position='relative' direction='row'>
+          <div><GithubIcon height='48' width='48' /></div>
+          <div>{github}</div>
+        </StyledContainer>
+      </StyledProjectLink>
+
+      <StyledProjectLink>
+        <h3>Demo:</h3>
+        <StyledContainer position='relative' direction='row'>
+          <div><FirebaseIcon height='48' width='48' /></div>
+          <div>{firebase}</div>
+        </StyledContainer>
+      </StyledProjectLink>
+
+    </StyledBlock>
+  )
 }
 
 export default ProjectBlock

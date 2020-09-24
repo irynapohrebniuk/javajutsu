@@ -15,7 +15,7 @@ export const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 100;
 
   &:focus {
     outline: none;
@@ -24,9 +24,9 @@ export const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme, open }) => open ? theme.primaryDark : theme.primaryLight};
+    background-color: ${({ theme, open }) => open ? theme.primaryLight : theme.primaryDark};;
     border-radius: 10px;
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
     position: relative;
     transform-origin: 1px;
 
@@ -36,7 +36,6 @@ export const StyledBurger = styled.button`
 
     :nth-child(2) {
       opacity: ${({open}) => open ? '0' : '1'};
-      transform: ${({open}) => open ? 'translateX(20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {

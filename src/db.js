@@ -13,7 +13,7 @@ const projects = [
       exchangeratesapi.io service 
       which provides data published 
       by European Central Bank. `,
-      'tech': ['Angular 9', 'HTML5', 'CSS', 'SASS', 
+      'tech': ['Angular 9', 'HTML5', 'CSS', 'SASS', 'RWD',
               'JS', 'Rest API', 'Typescript', 'NG Bootstrap 6.1.0', 'ng2-charts 2.3.2',
               'Chart.js 2.9.3'],
       'links': {'github': 'https://github.com/irynapohrebniuk/currency-converter', 
@@ -27,7 +27,7 @@ const projects = [
       'info': `The application for visual presentation of 
       weather forecast based on data 
       from openweathermap.org. `,
-      'tech': ['Angular 9', 'HTML5', 'CSS', 'SASS', 'Typescript', 'Rest API'],
+      'tech': ['Angular 9', 'HTML5', 'CSS', 'SASS', 'Typescript','RWD', 'Rest API'],
       'links': {'github': 'https://github.com/irynapohrebniuk/weather-forecast', 
                 'firebase': 'https://weather-forecast-5b7d8.web.app/'},
       'imgMobile': imgWeatherMobile,

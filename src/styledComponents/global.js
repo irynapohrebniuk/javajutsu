@@ -10,8 +10,8 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.primaryDark};
-    color: ${({ theme }) => theme.primaryLight};
+    background: ${({ theme }) => theme.primaryLight};
+    color: ${({ theme }) => theme.primaryDark};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     min-height: 100vh;
     justify-content: left;

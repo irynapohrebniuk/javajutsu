@@ -24,7 +24,7 @@ const StyledContent = styled.div`
     position: absolute;
     left: ${({ open }) => open ? '20rem;' : '7rem;'};
     flex-grow: 1;
-    background-color: ${({ theme }) => theme.primaryDark};
+    background-color: ${({ theme }) => theme.primaryLight};
     width: 100%;
     min-height: 100vh;
 `

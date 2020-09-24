@@ -19,7 +19,7 @@ function Projects() {
                 key={'project_' + index}
                 >
               </ProjectBlock>
-              <img src={project.imgMobile} alt={project.title} width='392px' />
+              <img src={project.imgMobile} alt={project.title} width='392px' height='auto' />
             </StyledContainer>
           )
         }
