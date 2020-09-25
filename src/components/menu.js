@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 export const StyledMenu = styled.nav`
   display: flex;
-  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,7 +13,7 @@ export const StyledMenu = styled.nav`
   height: 100vh;
   text-align: left;
   padding: 2rem;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   z-index: 10;
   
@@ -24,8 +23,9 @@ export const StyledMenu = styled.nav`
 `
 
 export const NavList = styled.ul`
-  /* margin-top: 4rem; */
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
   text-transform: none;
   font-weight: 300;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const StyledBurger = styled.button`
   position: absolute; 
-  top: 5%;
+  top: 2rem;
   left: 2rem;
   display: flex;
   flex-direction: column;
@@ -26,20 +26,20 @@ export const StyledBurger = styled.button`
     height: 0.25rem;
     background-color: ${({ theme, open }) => open ? theme.primaryLight : theme.primaryDark};;
     border-radius: 10px;
-    transition: all 0.1s linear;
+    transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({open}) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({open}) => open ? '0' : '1'};
+      opacity: ${({ open }) => open ? '0' : '1'};
     }
 
     :nth-child(3) {
-      transform: ${({open}) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
 `
@@ -55,8 +55,8 @@ const Burger = ({ open, setOpen }) => {
 }
 
 Burger.propTypes = {
-    open: bool.isRequired,
-    setOpen: func.isRequired,
-  };
+  open: bool.isRequired,
+  setOpen: func.isRequired,
+};
 
 export default Burger

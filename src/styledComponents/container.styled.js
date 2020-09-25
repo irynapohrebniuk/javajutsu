@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 const StyledContainer = styled.div`
-  flex-direction: ${(props) => props.direction};
   display: flex; 
-  position: ${(props) => props.position};
-  align-items: center;
+  flex-direction: ${(props) => props.direction};
+  flex-wrap: wrap;
+  
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }

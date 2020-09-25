@@ -12,23 +12,31 @@ import { theme } from './styledComponents/theme'
 import { GlobalStyles } from './styledComponents/global'
 import Footer from './components/footer'
 import styled from 'styled-components'
+import imgLight from './img/logoLight_48.png'
+import imgDark from './img/logoDark_48.png'
 
 const StyledNav = styled.nav`
-    /* display: flex; */
-    /* width: 30%; */
     align-content: center;
-    min-height: 100vh;
+    flex-basis: 4rem;
 `
-
 const StyledContent = styled.div`
     position: absolute;
-    left: ${({ open }) => open ? '20rem;' : '7rem;'};
+    top: 4rem;
     flex-grow: 1;
     background-color: ${({ theme }) => theme.primaryLight};
-    width: 100%;
     min-height: 100vh;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+    left: 0;
+  }
 `
-
+const StyledLogo = styled.div`
+  position: absolute;
+  left: 6rem;
+  top: 1rem;
+  width: 48px;
+  z-index: 200;
+`
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -40,30 +48,33 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-        <StyledContainer position='relative' direction='column'> 
+        <StyledContainer direction='row'>
           <StyledNav ref={node}>
             <Burger open={open} setOpen={setOpen} />
+            <StyledLogo open={open}>
+              <img src={open ? imgLight : imgDark} alt='logo' />
+            </StyledLogo>
             <Menu open={open} setOpen={setOpen} />
           </StyledNav>
+
           <StyledContent open={open}>
             <Switch>
               <Route path="/projects">
-                <Projects />
+                <Projects open={open} />
               </Route>
               <Route path="/about">
-                <About />
+                <About open={open} />
               </Route>
               <Route path="/Contact">
-                <Contact />
+                <Contact open={open} />
               </Route>
             </Switch>
+            <Footer />
           </StyledContent>
         </StyledContainer>
       </Router >
-      <Footer />
     </ThemeProvider>
   )
 }
-
 
 export default App;

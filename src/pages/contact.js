@@ -2,9 +2,9 @@ import React from 'react'
 import StyledPage from '../styledComponents/page.styled';
 
 
-function Contact() {
+function Contact({ open }) {
   return (
-    <StyledPage>
+    <StyledPage open={open}>
       Contact
     </StyledPage>
   )
