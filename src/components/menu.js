@@ -8,9 +8,10 @@ export const StyledMenu = styled.nav`
   position: absolute;
   top: 0;
   left: 0;
-  justify-content:center;
+  justify-content: flex-start;
   background: ${({ theme }) => theme.primaryDark};
-  height: 100vh;
+  align-content: stretch;
+  min-height: 100vh;
   text-align: left;
   padding: 2rem;
   transition: transform 0.5s ease-in-out;
@@ -26,6 +27,7 @@ export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 3rem;
   list-style: none;
   text-transform: none;
   font-weight: 300;

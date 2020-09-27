@@ -12,12 +12,22 @@ import { theme } from './styledComponents/theme'
 import { GlobalStyles } from './styledComponents/global'
 import Footer from './components/footer'
 import styled from 'styled-components'
-import imgLight from './img/logoLight_48.png'
-import imgDark from './img/logoDark_48.png'
+import SubMenu from './components/submenu';
+import LogoIcon from './components/logoIcon';
 
 const StyledNav = styled.nav`
     align-content: center;
     flex-basis: 4rem;
+    min-height: 100vh;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        flex-basis: 100%;
+        padding: 2rem;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) and (orientation: landscape) {
+        flex-basis: 100%;
+        padding: 2rem;
+    }
 `
 const StyledContent = styled.div`
     position: absolute;
@@ -34,7 +44,7 @@ const StyledLogo = styled.div`
   position: absolute;
   left: 6rem;
   top: 1rem;
-  width: 48px;
+  width: 64px;
   z-index: 200;
 `
 
@@ -52,20 +62,21 @@ function App() {
           <StyledNav ref={node}>
             <Burger open={open} setOpen={setOpen} />
             <StyledLogo open={open}>
-              <img src={open ? imgLight : imgDark} alt='logo' />
+              <LogoIcon width='44' height='55' open={open} />
             </StyledLogo>
             <Menu open={open} setOpen={setOpen} />
           </StyledNav>
 
           <StyledContent open={open}>
             <Switch>
-              <Route path="/projects">
+              <Route path="/projects/:slug?">
+                <SubMenu open={open} />
                 <Projects open={open} />
               </Route>
               <Route path="/about">
                 <About open={open} />
               </Route>
-              <Route path="/Contact">
+              <Route path="/contact">
                 <Contact open={open} />
               </Route>
             </Switch>

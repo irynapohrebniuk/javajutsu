@@ -51,7 +51,7 @@ const ProjectBlock = (props) => {
         <h3>Repository:</h3>
         <StyledContainer position='relative' direction='row'>
           <div><GithubIcon height='48' width='48' /></div>
-          <div><ExtLink href={github} target='_blank'>{github}</ExtLink></div>
+          <div><ExtLink href={github} target='_blank' rel="noopener">{github}</ExtLink></div>
         </StyledContainer>
       </StyledProjectLink>
 
@@ -59,7 +59,7 @@ const ProjectBlock = (props) => {
         <h3>Demo:</h3>
         <StyledContainer position='relative' direction='row'>
           <div><FirebaseIcon height='48' width='48' /></div>
-          <div><ExtLink href={firebase} target='_blank'>{firebase}</ExtLink></div>
+          <div><ExtLink href={firebase} target='_blank' rel="noopener">{firebase}</ExtLink></div>
         </StyledContainer>
       </StyledProjectLink>
 
