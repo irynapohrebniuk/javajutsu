@@ -11,16 +11,26 @@ export const StyledMenu = styled.nav`
   justify-content: flex-start;
   background: ${({ theme }) => theme.primaryDark};
   align-content: stretch;
-  min-height: 100vh;
-  text-align: left;
+  height: 30rem;
+  width: 24rem;
+  text-align: center;
   padding: 2rem;
   transition: transform 0.5s ease-in-out;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   z-index: 10;
-  
-  @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
-  }
+`
+export const StyledTriangle = styled.div`
+      position: absolute;
+      top: 29rem;
+      left: 10rem;
+      width: 0;
+      height: 0;
+      border-left: 2rem solid transparent;
+      border-right: 2rem solid transparent;
+      border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
+      transition: transform 0.2s ease-in-out;
+      transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+      z-index: 11;
 `
 
 export const NavList = styled.ul`
@@ -67,11 +77,14 @@ const NavItems = (props) => {
 
 const Menu = ({ open }) => {
   return (
-    <StyledMenu open={open}>
-      <NavList>
-        <NavItems items={navItemsNames}></NavItems>
-      </NavList>
-    </StyledMenu>
+    <>
+      <StyledMenu open={open}>
+        <NavList>
+          <NavItems items={navItemsNames}></NavItems>
+        </NavList>
+      </StyledMenu>
+      <StyledTriangle open={open} />
+    </>
   )
 }
 

@@ -6,13 +6,15 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   *, *::after, *::before {
     box-sizing: border-box;
   }
+  
   body {
     background: ${({ theme }) => theme.primaryLight};
     color: ${({ theme }) => theme.primaryDark};
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: Roboto, sans-serif;
     min-height: 100vh;
     justify-content: left;
     font-size: 16px;
@@ -23,9 +25,22 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     max-width: 1200px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     min-height: 100vh;
     align-content: stretch;
     background-color: grey;
   }
-  `
+  
+  .java {
+    font: bold 22px Roboto, sans-serif;
+    fill: red;
+  }
+
+  .jutsu {
+    font: bold 26px Roboto, sans-serif;
+  }
+
+  .j {
+    font: 45px Roboto, sans-serif;
+  }
+`

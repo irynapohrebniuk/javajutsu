@@ -45,7 +45,7 @@ const StyledLogo = styled.div`
   left: 6rem;
   top: 1rem;
   width: 64px;
-  z-index: 200;
+  z-index: 999;
 `
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
           <StyledNav ref={node}>
             <Burger open={open} setOpen={setOpen} />
             <StyledLogo open={open}>
-              <LogoIcon width='44' height='55' open={open} />
+              <LogoIcon width='48' height='48' open={open} />
             </StyledLogo>
             <Menu open={open} setOpen={setOpen} />
           </StyledNav>
