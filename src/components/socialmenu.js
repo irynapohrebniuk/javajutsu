@@ -4,9 +4,6 @@ import InstagramIcon from '../img/svg-components/instagramIcon'
 import FacebookIcon from '../img/svg-components/facebookIcon'
 import LinkedinIcon from '../img/svg-components/linkedinIcon'
 import { theme } from '../styledComponents/theme'
-import linkedin from '../img/svg-components/linkedin-logo.svg'
-import insta from '../img/svg-components/instagram.svg'
-import facebook from '../img/svg-components/facebook-app-logo.svg'
 
 const colorIcon = theme.primaryLight;
 

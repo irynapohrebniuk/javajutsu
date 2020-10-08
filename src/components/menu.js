@@ -11,7 +11,8 @@ export const StyledMenu = styled.nav`
   justify-content: center;
   background: ${({ theme }) => theme.primaryDark};
   align-content: stretch;
-  height: 100vh;
+  min-height: 100vh;
+  height: 40rem;
   width: 24rem;
   text-align: center;
   padding: 2rem;
@@ -67,12 +68,13 @@ const navItemsNames = ['Projects', 'About', 'Contact']
 const NavItems = (props) => {
   const items = props.items.map((item) => 
     <NavItem key={'navItem_' + item}>
-      <StyledLink to={'/' + item}> {item} </StyledLink>
+      <StyledLink to={'/' + item} > {item} </StyledLink>
     </NavItem>)
   return items
 }
 
 const Menu = ({ open }) => {
+  
   return (
     <>
       <StyledMenu open={open}>

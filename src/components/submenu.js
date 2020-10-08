@@ -3,13 +3,17 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledList = styled.ul`
+  /* display: ${props => props.visible ? "none" : "none"};  */
+  position: absolute;
+  top: 2rem;
+  left: 20rem;
+  flex-basis: 30rem;
+  width: 30rem;
   list-style-type: none;
   display: flex;
   align-content: center;
-  flex-grow: 1;
-  align-items: center;
-  transition: transform 0.5s ease-in-out;
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+  justify-content: space-evenly;
+  z-index: 3;
 `
 const StyledListItem = styled.li`
     :hover {
@@ -19,27 +23,21 @@ const StyledListItem = styled.li`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  display: inline-block;
+  /* display: ${props => props.visible ? "inline-block": "none"} ; */
   padding-bottom: 2px;
   color: black;
+  border-bottom: 2px solid transparent;
+
   :hover {
     border-bottom: 2px solid black;
   }
-  ::after {
-    width: 0;
-    height: 0;
-    border-left: 2rem solid transparent;
-    border-right: 2rem solid transparent;
-    border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
-    transition: transform 0.2s ease-in-out;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
-  }
 `
 
-const SubMenu = ({ open }) => {
+const SubMenu = (props) => {
     const filterItems = ['All', 'React', 'Angular', 'Vanilla JS']
+    // console.log('open, visible: ', props.open, props.visible)
     return (
-        <StyledList open={open}>
+        <StyledList open={props.open} visible={props.visible}>
             {
                 filterItems.map((item, index) =>
                     <StyledListItem key={index}>

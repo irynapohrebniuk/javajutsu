@@ -11,8 +11,8 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from './styledComponents/theme'
 import { GlobalStyles } from './styledComponents/global'
 import styled from 'styled-components'
-import SubMenu from './components/submenu';
 import LogoIcon from './components/logoIcon';
+import SubMenu from './components/submenu';
 
 const StyledNav = styled.nav`
     align-content: center;
@@ -46,9 +46,12 @@ const StyledLogo = styled.div`
 `
 
 function App() {
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  useOnClickOutside(node, () => setOpen(false));
+  const [open, setOpen] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const node = useRef()
+  const menu = useRef()
+  useOnClickOutside(node, () => setOpen(false))
+  useOnClickOutside(menu, () => setVisible(true))
 
   return (
 
@@ -62,12 +65,12 @@ function App() {
               <LogoIcon width='48' height='48' open={open} />
             </StyledLogo>
             <Menu open={open} setOpen={setOpen} />
+            <SubMenu open={open} visible={visible} />
           </StyledNav>
 
           <StyledContent>
             <Switch>
               <Route path="/projects/:slug?">
-                <SubMenu open={open} />
                 <Projects open={open} />
               </Route>
               <Route path="/about">
