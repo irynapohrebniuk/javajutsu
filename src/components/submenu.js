@@ -6,37 +6,34 @@ const StyledList = styled.ul`
   list-style-type: none;
   display: flex;
   align-content: center;
-  height: 3rem;
   flex-grow: 1;
   align-items: center;
-  padding-left: ${({ open }) => open ? '26rem;' : '7rem;'};
   transition: transform 0.5s ease-in-out;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
 `
 const StyledListItem = styled.li`
-    padding: 0 2rem;
     :hover {
         cursor: pointer;
     }
 `
 
 const StyledNavLink = styled(NavLink)`
-    text-decoration: none;
-    display: inline-block;
-    padding-bottom: 2px;
-    color: black;
-    :hover {
-      border-bottom: 2px solid black;
-    }
-    ::after {
-      width: 0;
-      height: 0;
-      border-left: 2rem solid transparent;
-      border-right: 2rem solid transparent;
-      border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
-      transition: transform 0.2s ease-in-out;
-      transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
-    }
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  color: black;
+  :hover {
+    border-bottom: 2px solid black;
+  }
+  ::after {
+    width: 0;
+    height: 0;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+    border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
+    transition: transform 0.2s ease-in-out;
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+  }
 `
 
 const SubMenu = ({ open }) => {

@@ -1,4 +1,4 @@
-// theme.js
+
 export const theme = {
     primaryDark: '#0D0C1D',
     primaryLight: '#fcfaf8',

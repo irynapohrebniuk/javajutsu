@@ -10,34 +10,31 @@ import StyledContainer from './styledComponents/container.styled'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styledComponents/theme'
 import { GlobalStyles } from './styledComponents/global'
-import Footer from './components/footer'
 import styled from 'styled-components'
 import SubMenu from './components/submenu';
 import LogoIcon from './components/logoIcon';
 
 const StyledNav = styled.nav`
     align-content: center;
-    flex-basis: 4rem;
     min-height: 100vh;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
+        flex-direction: column;
         flex-basis: 100%;
-        padding: 2rem;
     }
+
     @media (max-width: ${({ theme }) => theme.mobile}) and (orientation: landscape) {
+        flex-direction: column;
         flex-basis: 100%;
-        padding: 2rem;
     }
 `
 const StyledContent = styled.div`
     position: absolute;
-    top: 4rem;
-    flex-grow: 1;
     background-color: ${({ theme }) => theme.primaryLight};
     min-height: 100vh;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-    flex-direction: column;
-    left: 0;
+      flex-direction: column;
+      left: 0;
   }
 `
 const StyledLogo = styled.div`
@@ -58,7 +55,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
-        <StyledContainer direction='row'>
+        <StyledContainer direction='row' open = {open}>
           <StyledNav ref={node}>
             <Burger open={open} setOpen={setOpen} />
             <StyledLogo open={open}>
@@ -67,7 +64,7 @@ function App() {
             <Menu open={open} setOpen={setOpen} />
           </StyledNav>
 
-          <StyledContent open={open}>
+          <StyledContent>
             <Switch>
               <Route path="/projects/:slug?">
                 <SubMenu open={open} />
@@ -80,7 +77,6 @@ function App() {
                 <Contact open={open} />
               </Route>
             </Switch>
-            <Footer />
           </StyledContent>
         </StyledContainer>
       </Router >
