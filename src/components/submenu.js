@@ -4,16 +4,16 @@ import styled from 'styled-components'
 
 const StyledList = styled.ul`
   /* display: ${props => props.visible ? "none" : "none"};  */
-  position: absolute;
-  top: 2rem;
-  left: 20rem;
+  margin-top: 2rem;
   flex-basis: 30rem;
-  width: 30rem;
   list-style-type: none;
   display: flex;
   align-content: center;
   justify-content: space-evenly;
   z-index: 3;
+  padding: 1rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 `
 const StyledListItem = styled.li`
     :hover {

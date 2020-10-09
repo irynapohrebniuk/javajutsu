@@ -16,26 +16,18 @@ import SubMenu from './components/submenu';
 
 const StyledNav = styled.nav`
     align-content: center;
-    min-height: 100vh;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-        flex-direction: column;
-        flex-basis: 100%;
-    }
-
-    @media (max-width: ${({ theme }) => theme.mobile}) and (orientation: landscape) {
-        flex-direction: column;
-        flex-basis: 100%;
-    }
+    flex-basis: 30%;
 `
 const StyledContent = styled.div`
-    position: absolute;
+    flex-basis: 70%;
     background-color: ${({ theme }) => theme.primaryLight};
     min-height: 100vh;
+    align-content: center;
+    padding: 1rem;
     @media (max-width: ${({ theme }) => theme.mobile}) {
+      flex: 100%;
       flex-direction: column;
-      left: 0;
-  }
+    }
 `
 const StyledLogo = styled.div`
   position: absolute;
@@ -65,10 +57,11 @@ function App() {
               <LogoIcon width='48' height='48' open={open} />
             </StyledLogo>
             <Menu open={open} setOpen={setOpen} />
-            <SubMenu open={open} visible={visible} />
+            
           </StyledNav>
 
           <StyledContent>
+            <SubMenu open={open} visible={visible} />
             <Switch>
               <Route path="/projects/:slug?">
                 <Projects open={open} />

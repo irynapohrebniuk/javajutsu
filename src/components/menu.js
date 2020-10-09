@@ -6,16 +6,13 @@ import SocialMenu from './socialmenu'
 
 export const StyledMenu = styled.nav`
   display: flex;
-  position: relative;
+  flex-basis: 30%;
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryDark};
-  align-content: stretch;
   min-height: 100vh;
-  height: 40rem;
-  width: 24rem;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   transition: transform 0.5s ease-in-out;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   z-index: 3;
@@ -25,7 +22,7 @@ export const StyledTriangle = styled.div`
   bottom: 0;
   width: 0;
   height: 0;
-  left: 10rem;
+  left: 42%;
   border-left: 2rem solid transparent;
   border-right: 2rem solid transparent;
   border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
