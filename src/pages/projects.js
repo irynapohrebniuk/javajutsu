@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProjectBlock from '../components/block'
 import StyledContainer from '../styledComponents/container.styled'
+import StyledSection from '../styledComponents/section.styled'
 import SubMenu from '../components/submenu'
 import { projects } from '../db'
 import styled from 'styled-components'
@@ -16,7 +17,6 @@ const Slider = styled.div`
   align-content: center;
   align-items: center;
   overflow: auto;
-  scroll-behavior: smooth;
 `
 
 const Slide = styled.div`
@@ -35,31 +35,20 @@ const Slide = styled.div`
   }
 `
 
-const LeftArrow = styled.button`
+const LeftArrow = styled.div`
   height: 0;
   width: 0;
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-right: 2rem solid ${({ theme }) => theme.primaryDark};
-  opacity: 0.5;
-  :hover {
-    opacity: 1;
-  }
 `
 
-const RightArrow = styled.button`
+const RightArrow = styled.div`
   height: 0;
   width: 0;
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-left: 2rem solid ${({ theme }) => theme.primaryDark};
-  opacity: 0.5;
-  :hover {
-    opacity: 1;
-  }
-  :disabled {
-    opacity: 0.5;
-  }
 `
 
 const ProjectTitle = styled.div`
@@ -96,7 +85,7 @@ const Projects = ({ open }) => {
         <RightArrow disabled={(filteredProjects.length === 0)} />
       </Slider>
       {(activeProject) && (
-        <StyledContainer direction='row' justifyContent='center'>
+        <StyledSection>
           <ProjectBlock
             title={activeProject.title}
             info={activeProject.info}
@@ -104,8 +93,8 @@ const Projects = ({ open }) => {
             links={activeProject.links}
           >
           </ProjectBlock>
-          <img src={activeProject.img} alt={activeProject.title} width='800px' height='auto' />
-        </StyledContainer>
+          <img src={activeProject.img} alt={activeProject.title} width='600px' height='auto' />
+        </StyledSection>
       )
 
       }

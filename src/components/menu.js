@@ -5,19 +5,18 @@ import { Link } from 'react-router-dom'
 import SocialMenu from './socialmenu'
 
 export const StyledMenu = styled.nav`
-  flex-basis: ${({ open }) => (open)? '30rem' : '0rem'};
+  flex-basis: ${({ open }) => (open)? '30%' : '0'};
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: ${({ theme }) => theme.primaryDark};
   text-align: center;
-  padding: 1rem;
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   z-index: 3;
 `
 export const StyledTriangle = styled.div`
-  position: absolute;
+  position: fixed;
+  display:  ${({ open }) => open ? 'block' : 'none'};
   bottom: 0;
   width: 0;
   height: 0;
@@ -32,9 +31,7 @@ export const StyledTriangle = styled.div`
 
 export const NavList = styled.ul` 
   list-style: none;
-  display: ${({ open }) => (open)? 'block' : 'none'};
-  transition: transform 0.5s ease-in-out;
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+  width: ${({ open }) => (open)? '30rem' : '0'};
 `
 
 export const NavItem = styled.li`
@@ -79,7 +76,7 @@ const Menu = ({ open, setVisible }) => {
         <NavList open={open}>
           <NavItems items={navItemsNames} onClick={(e)=> (e.target.innerText === 'Projects')? setVisible(true): setVisible(false)}></NavItems>
         </NavList>
-        <SocialMenu />
+        <SocialMenu open={open} />
         <StyledTriangle open={open} />
       </StyledMenu>
     </>

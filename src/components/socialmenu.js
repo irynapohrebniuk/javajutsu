@@ -8,9 +8,10 @@ import { theme } from '../styledComponents/theme'
 const colorIcon = theme.primaryLight;
 
 const SocialIconContainer = styled.div`
-  display: flex;
+  display: ${({ open }) => (open)? 'flex' : 'none'};
   z-index: 3;
   justify-content: center;
+  margin-top: 3rem;
 `
 
 const SocialIcon = styled.div`
@@ -22,16 +23,11 @@ const SocialIcon = styled.div`
   margin: 1rem;
 `
 
-const Line = styled.hr`
-  margin-top: 3rem; 
-  border: 1px solid ${colorIcon};
-`
 
-const SocialMenu = () => {
+const SocialMenu = ({open}) => {
   return (
     <div>
-      <Line />
-      <SocialIconContainer>
+      <SocialIconContainer open={open}>
         <SocialIcon>
         <a href='https://www.instagram.com/iryna.pohrebniuk/'><InstagramIcon color={colorIcon} /></a>
         </SocialIcon>

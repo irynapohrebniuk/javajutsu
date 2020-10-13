@@ -14,17 +14,15 @@ import styled from 'styled-components'
 import LogoIcon from './components/logoIcon';
 
 const StyledNav = styled.nav`
-  flex-basis: ${({ open }) => (open)? '30rem' : '0rem'};
-  width: ${({ open }) => (open)? '30rem' : '0rem'};
+  flex-basis: ${({ open }) => (open)? '30%' : '0'};
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   min-height: 100vh;
 `
 const StyledContent = styled.div`
-  flex-basis: ${({ open }) => (open)? 'auto' : '100%'};
+  flex-basis: ${({ open }) => (open)? '70%' : '100%'};
   background-color: ${({ theme }) => theme.primaryLight};
-  margin-top: 2rem;
-  padding: 1rem;
+  padding-top: 4rem;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex: 100%;
     flex-direction: column;

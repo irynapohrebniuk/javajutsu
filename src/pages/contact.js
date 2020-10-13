@@ -1,5 +1,5 @@
 import React from 'react'
-import StyledPage from '../styledComponents/page.styled';
+import StyledPage from '../styledComponents/section.styled';
 
 
 function Contact({ open }) {
