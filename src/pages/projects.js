@@ -41,6 +41,7 @@ const LeftArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-right: 2rem solid ${({ theme }) => theme.primaryDark};
+  display: ${props => (props.disabled)? 'none' : 'block'}
 `
 
 const RightArrow = styled.div`
@@ -49,6 +50,7 @@ const RightArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-left: 2rem solid ${({ theme }) => theme.primaryDark};
+  display: ${props => (props.disabled)? 'none' : 'block'}
 `
 
 const ProjectTitle = styled.div`
@@ -58,42 +60,49 @@ const ProjectTitle = styled.div`
 `
 
 const Projects = ({ open }) => {
-  const [activeProject, setActiveProject] = useState(projects[0])
+  const [active, setActive] = useState(0)
 
   let { slug } = useParams();
   let filteredProjects = projects.filter(project => project.tech.includes(slug))
   let renderedProjects = (filteredProjects.length === 0) ? projects : filteredProjects
 
-  useEffect(() => {
+  /* useEffect(() => {
 
-  }, [activeProject, filteredProjects]);
+  }, [active, filteredProjects]); */
   return (
     <StyledContainer direction="column" open={open}>
       <SubMenu open={open} />
       <Slider>
-        <LeftArrow disabled={(filteredProjects.length === 1)} />
+        <LeftArrow disabled =
+            {(active === 0) 
+            || filteredProjects.length === 1} 
+            onClick = {() => setActive(active - 1)}
+        />
         {
           renderedProjects
             .map((project, index) =>
               <Slide background={project.imgMobile}
-                className={(project === activeProject)? 'active' : ''}
-                onClick={() => setActiveProject(project)} key={'project' + index}>
+                className={(index === active)? 'active' : ''}
+                onClick={() => setActive(index)} key={'project' + index}>
                 <ProjectTitle>{project.title}</ProjectTitle>
               </Slide>
             )
         }
-        <RightArrow disabled={(filteredProjects.length === 0)} />
+        <RightArrow disabled={
+            (active === filteredProjects.length - 1) 
+            || filteredProjects.length === 1} 
+            onClick = {() => setActive(active + 1)}/>
       </Slider>
-      {(activeProject) && (
+      {(renderedProjects[active]) && (
         <StyledSection>
           <ProjectBlock
-            title={activeProject.title}
-            info={activeProject.info}
-            tech={activeProject.tech}
-            links={activeProject.links}
+            title={renderedProjects[active].title}
+            info={renderedProjects[active].info}
+            tech={renderedProjects[active].tech}
+            links={renderedProjects[active].links}
           >
           </ProjectBlock>
-          <img src={activeProject.img} alt={activeProject.title} width='600px' height='auto' />
+          <img src={renderedProjects[active].img} alt={renderedProjects[active].title} width='600px' height='auto' />
         </StyledSection>
       )
 
