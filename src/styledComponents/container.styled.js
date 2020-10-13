@@ -5,6 +5,7 @@ const StyledContainer = styled.div`
   flex-direction: ${(props) => props.direction};
   flex-wrap: wrap;
   color: ${({ theme }) => theme.primaryDark};
+  justify-content: ${(props) => (props)? props.justifyContent : 'flex-start'}
 `
 
 export default StyledContainer

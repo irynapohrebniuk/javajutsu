@@ -9,7 +9,6 @@ const colorIcon = theme.primaryLight;
 
 const SocialIconContainer = styled.div`
   display: flex;
-  position: relative;
   z-index: 3;
   justify-content: center;
 `
@@ -44,7 +43,6 @@ const SocialMenu = () => {
         </SocialIcon>
       </SocialIconContainer>
     </div>
-
   )
 }
 

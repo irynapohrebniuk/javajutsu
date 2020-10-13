@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProjectBlock from '../components/block'
 import StyledContainer from '../styledComponents/container.styled'
+import SubMenu from '../components/submenu'
 import { projects } from '../db'
 import styled from 'styled-components'
 
@@ -19,7 +20,6 @@ const Slider = styled.div`
 `
 
 const Slide = styled.div`
-  border: ${({ theme }) => theme.primaryDark} solid 1px;
   flex-basis: 12rem;
   height: 10rem;
   margin: 0.5rem;
@@ -29,12 +29,13 @@ const Slide = styled.div`
   text-align: right;
   color: ${({ theme }) => theme.primaryDark};
   background-image: url(${props => props.background});
+  box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.19);
   :hover {
     opacity: 1;
   }
 `
 
-const LeftArrow = styled.div`
+const LeftArrow = styled.button`
   height: 0;
   width: 0;
   border-top: 2rem solid transparent;
@@ -46,7 +47,7 @@ const LeftArrow = styled.div`
   }
 `
 
-const RightArrow = styled.div`
+const RightArrow = styled.button`
   height: 0;
   width: 0;
   border-top: 2rem solid transparent;
@@ -55,6 +56,9 @@ const RightArrow = styled.div`
   opacity: 0.5;
   :hover {
     opacity: 1;
+  }
+  :disabled {
+    opacity: 0.5;
   }
 `
 
@@ -65,7 +69,7 @@ const ProjectTitle = styled.div`
 `
 
 const Projects = ({ open }) => {
-  const [activeProject, setActiveProject] = useState(null)
+  const [activeProject, setActiveProject] = useState(projects[0])
 
   let { slug } = useParams();
   let filteredProjects = projects.filter(project => project.tech.includes(slug))
@@ -75,22 +79,24 @@ const Projects = ({ open }) => {
 
   }, [activeProject, filteredProjects]);
   return (
-    <>
+    <StyledContainer direction="column" open={open}>
+      <SubMenu open={open} />
       <Slider>
-        <LeftArrow />
+        <LeftArrow disabled={(filteredProjects.length === 1)} />
         {
           renderedProjects
             .map((project, index) =>
               <Slide background={project.imgMobile}
+                className={(project === activeProject)? 'active' : ''}
                 onClick={() => setActiveProject(project)} key={'project' + index}>
                 <ProjectTitle>{project.title}</ProjectTitle>
               </Slide>
             )
         }
-        <RightArrow />
+        <RightArrow disabled={(filteredProjects.length === 0)} />
       </Slider>
       {(activeProject) && (
-        <StyledContainer direction='row'>
+        <StyledContainer direction='row' justifyContent='center'>
           <ProjectBlock
             title={activeProject.title}
             info={activeProject.info}
@@ -98,12 +104,12 @@ const Projects = ({ open }) => {
             links={activeProject.links}
           >
           </ProjectBlock>
-          <img src={activeProject.imgMobile} alt={activeProject.title} width='392px' height='auto' />
+          <img src={activeProject.img} alt={activeProject.title} width='800px' height='auto' />
         </StyledContainer>
       )
 
       }
-    </>
+    </StyledContainer>
   )
 }
 

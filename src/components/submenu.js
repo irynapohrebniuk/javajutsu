@@ -3,17 +3,16 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledList = styled.ul`
-  /* display: ${props => props.visible ? "none" : "none"};  */
-  margin-top: 2rem;
-  flex-basis: 30rem;
+  display: block;
+  margin-top: 5rem;
   list-style-type: none;
+  flex-basis: 90%;
   display: flex;
   align-content: center;
   justify-content: space-evenly;
   z-index: 3;
   padding: 1rem;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.19);
 `
 const StyledListItem = styled.li`
     :hover {
@@ -23,7 +22,7 @@ const StyledListItem = styled.li`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  /* display: ${props => props.visible ? "inline-block": "none"} ; */
+  display: block; 
   padding-bottom: 2px;
   color: black;
   border-bottom: 2px solid transparent;
@@ -33,11 +32,10 @@ const StyledNavLink = styled(NavLink)`
   }
 `
 
-const SubMenu = (props) => {
+const SubMenu = ({open}) => {
     const filterItems = ['All', 'React', 'Angular', 'Vanilla JS']
-    // console.log('open, visible: ', props.open, props.visible)
     return (
-        <StyledList open={props.open} visible={props.visible}>
+        <StyledList open={open}>
             {
                 filterItems.map((item, index) =>
                     <StyledListItem key={index}>

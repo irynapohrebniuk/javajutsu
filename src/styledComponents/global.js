@@ -43,4 +43,8 @@ export const GlobalStyles = createGlobalStyle`
   .j {
     font: 45px Roboto, sans-serif;
   }
+
+  .active {
+    opacity: 1;
+  }
 `
