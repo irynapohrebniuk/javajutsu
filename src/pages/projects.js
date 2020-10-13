@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ProjectBlock from '../components/block'
+import ProjectBlock from '../components/projectBlock'
 import StyledContainer from '../styledComponents/container.styled'
 import StyledSection from '../styledComponents/section.styled'
 import SubMenu from '../components/submenu'
+import StyledResponsiveImg from '../styledComponents/responsiveImg.styled'
+import StyledImageBlock from '../styledComponents/imageBlock.styled'
 import { projects } from '../db'
 import styled from 'styled-components'
 
@@ -49,7 +51,11 @@ const LeftArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-right: 2rem solid ${({ theme }) => theme.primaryDark}; 
-  z-index: ${props => (props.disabled)? '-5' : '100'}
+  z-index: ${props => (props.disabled)? '-5' : '100'};
+  opacity: 0.5;
+  :hover {
+    opacity: 1;
+  }
 `
 
 const RightArrow = styled.div`
@@ -59,12 +65,16 @@ const RightArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-left: 2rem solid ${({ theme }) => theme.primaryDark};
-  z-index: ${props => (props.disabled)? '-5' : '100'}
+  z-index: ${props => (props.disabled)? '-5' : '100'};
+  opacity: 0.5;
+  :hover {
+    opacity: 1;
+  }
 `
 
 const ProjectTitle = styled.div`
   padding: 0.5rem;
-  background-color: ${({theme}) => theme.primaryDark};
+  background-color: gray;
   color: ${({theme}) => theme.primaryLight}
 `
 
@@ -105,7 +115,7 @@ const Projects = ({ open }) => {
             onClick = {() => {if (active < renderedProjects.length - 1) setActive(active + 1)}}/>
       </Slider>
       {(renderedProjects[active]) && (
-        <StyledSection>
+        <StyledSection direction='column'>
           <ProjectBlock
             title={renderedProjects[active].title}
             info={renderedProjects[active].info}
@@ -113,7 +123,10 @@ const Projects = ({ open }) => {
             links={renderedProjects[active].links}
           >
           </ProjectBlock>
-          <img src={renderedProjects[active].img} alt={renderedProjects[active].title} width='600px' height='auto' />
+          <StyledImageBlock>
+            <StyledResponsiveImg src={renderedProjects[active].img} alt={renderedProjects[active].title} />
+          </StyledImageBlock>
+          
         </StyledSection>
       )
 

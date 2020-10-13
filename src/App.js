@@ -18,6 +18,11 @@ const StyledNav = styled.nav`
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   min-height: 100vh;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex: 100%;
+    flex-direction: column;
+    height: ${({ open }) => (open)? '100vh' : '0'};
+  }
 `
 const StyledContent = styled.div`
   flex-basis: ${({ open }) => (open)? '70%' : '100%'};

@@ -23,7 +23,6 @@ const SocialIcon = styled.div`
   margin: 1rem;
 `
 
-
 const SocialMenu = ({open}) => {
   return (
     <div>

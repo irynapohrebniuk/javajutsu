@@ -1,7 +1,14 @@
-import imgConverterMobile from './img/currencyconverter-mobile-t.png'
-import imgConverter from './img/currencyconverter.png'
-import imgWeatherMobile from './img/weather-mobile-t.png'
-import imgWeather from './img/weather.png'
+import imgConverterMobile from './img/converter-project-mobile.png'
+import imgConverter from './img/converter-project-desktop.png'
+import imgWeatherMobile from './img/weather-project-mobile.png'
+import imgWeather from './img/weather-project-desktop.png'
+import imgSpa from './img/spa-project-desktop.png'
+import imgSpaMobile from './img/spa-project-mobile.png'
+import imgSpaPreview from './img/spa-preview.png'
+import imgWeatherPreview from './img/weather-preview.png'
+import imgConverterPreview from './img/converter-preview.png'
+import imgPortfolioPreview from './img/spa-preview.png'
+import imgPortfolio from './img/portfolio-project-desktop.png'
 
 const projects = [
     {
@@ -19,7 +26,8 @@ const projects = [
       'links': {'github': 'https://github.com/irynapohrebniuk/currency-converter', 
                 'firebase': 'https://currency-converter-pohrebniuk.web.app/'},
       'imgMobile': imgConverterMobile,
-      'img': imgConverter
+      'img': imgConverter,
+      'imgPreview': imgConverterPreview
     },
     {
       'id': 2,
@@ -31,7 +39,8 @@ const projects = [
       'links': {'github': 'https://github.com/irynapohrebniuk/weather-forecast', 
                 'firebase': 'https://weather-forecast-5b7d8.web.app/'},
       'imgMobile': imgWeatherMobile,
-      'img': imgWeather
+      'img': imgWeather,
+      'imgPreview': imgWeatherPreview
     },
     {
       'id': 3,
@@ -41,7 +50,8 @@ const projects = [
       'links': {'github': 'https://github.com/irynapohrebniuk/javajutsu', 
                 'firebase': 'https://javajutsu.org/'},
       'imgMobile': imgWeatherMobile,
-      'img': imgWeather
+      'img': imgPortfolio,
+      'imgPreview': imgPortfolioPreview
     },
     {
       'id': 4,
@@ -58,10 +68,10 @@ const projects = [
       Logowanie użytkownika
       Podsumowanie składanego zamówienia`,
       'tech': ['Vanilla JS', 'HTML5', 'CSS', 'SASS', 'JavaScript','RWD', 'Bootstrap 4', ' jQuery'],
-      'links': {'github': 'https://github.com/irynapohrebniuk/spa-for-programmers', 
-                'firebase': 'https://javajutsu.org/'},
-      'imgMobile': imgWeatherMobile,
-      'img': imgWeather
+      'links': {'github': 'https://github.com/irynapohrebniuk/spa-for-programmers'},
+      'imgMobile': imgSpaMobile,
+      'img': imgSpa,
+      'imgPreview': imgSpaPreview
     },
 
   ]

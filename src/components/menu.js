@@ -13,6 +13,11 @@ export const StyledMenu = styled.nav`
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   z-index: 3;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex: 100%;
+    flex-direction: column;
+    height: ${({ open }) => (open)? '100vh' : '0'};
+  }
 `
 export const StyledTriangle = styled.div`
   position: fixed;
@@ -20,7 +25,7 @@ export const StyledTriangle = styled.div`
   bottom: 0;
   width: 0;
   height: 0;
-  left: 13rem;
+  left: 42%;
   border-left: 2rem solid transparent;
   border-right: 2rem solid transparent;
   border-bottom: 2rem solid ${({ theme }) => theme.primaryLight};
@@ -29,13 +34,13 @@ export const StyledTriangle = styled.div`
   z-index: 4;
 `
 
-export const NavList = styled.ul` 
+export const NavList = styled.ul`
+  display: ${({ open }) => open ? 'block' : 'none'}; 
   list-style: none;
   width: ${({ open }) => (open)? '30rem' : '0'};
 `
 
 export const NavItem = styled.li`
-  display: block;
   font-weight: 300;
   line-height: 60px;
 `
@@ -74,7 +79,7 @@ const Menu = ({ open, setVisible }) => {
     <>
       <StyledMenu open={open}>
         <NavList open={open}>
-          <NavItems items={navItemsNames} onClick={(e)=> (e.target.innerText === 'Projects')? setVisible(true): setVisible(false)}></NavItems>
+          <NavItems open={open} items={navItemsNames} onClick={(e)=> (e.target.innerText === 'Projects')? setVisible(true): setVisible(false)}></NavItems>
         </NavList>
         <SocialMenu open={open} />
         <StyledTriangle open={open} />
