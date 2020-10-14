@@ -19,15 +19,15 @@ const StyledNav = styled.nav`
   transition: background-color 0.5s ease-in-out;
   min-height: 100vh;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    flex: 100%;
+    flex-basis: 100%;
     flex-direction: column;
-    height: ${({ open }) => (open)? '100vh' : '0'};
+    min-height: 100vh;
+    min-height: ${({ open }) => (open)? '100vh' : '0'};
   }
 `
 const StyledContent = styled.div`
   flex-basis: ${({ open }) => (open)? '70%' : '100%'};
   background-color: ${({ theme }) => theme.primaryLight};
-  padding-top: 4rem;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex: 100%;
     flex-direction: column;

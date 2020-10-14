@@ -10,6 +10,8 @@ const StyledList = styled.ul`
   z-index: 3;
   padding: 0 1rem;
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.19);
+  margin-top: ${({open}) => (open)? '1rem' : '3rem'};
+  padding-bottom: 0.5rem;
 `
 const StyledListItem = styled.li`
     :hover {

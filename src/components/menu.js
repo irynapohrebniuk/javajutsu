@@ -8,15 +8,15 @@ export const StyledMenu = styled.nav`
   flex-basis: ${({ open }) => (open)? '30%' : '0'};
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  padding: 2rem;
+  justify-content: flex-start;
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   z-index: 3;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    flex: 100%;
+    flex-basis: 100%;
     flex-direction: column;
-    height: ${({ open }) => (open)? '100vh' : '0'};
+    min-height: ${({ open }) => (open)? '100vh' : '0'};
   }
 `
 export const StyledTriangle = styled.div`
@@ -37,12 +37,16 @@ export const StyledTriangle = styled.div`
 export const NavList = styled.ul`
   display: ${({ open }) => open ? 'block' : 'none'}; 
   list-style: none;
-  width: ${({ open }) => (open)? '30rem' : '0'};
+  width: ${({ open }) => (open)? '100%' : '0'};
+  text-align: center;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: ${({ open }) => (open)? '100%' : '0'};
+  }
 `
 
 export const NavItem = styled.li`
   font-weight: 300;
-  line-height: 60px;
+  line-height: 4rem;
 `
 
 export const StyledLink = styled(Link)`
