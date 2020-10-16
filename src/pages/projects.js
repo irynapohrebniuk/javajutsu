@@ -17,6 +17,11 @@ const Slider = styled.div`
   align-content: center;
   align-items: center;
   padding: 2rem;
+  flex-wrap: nowrap;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
 `
 
 const Slide = styled.div`
@@ -33,15 +38,18 @@ const Slide = styled.div`
   :hover {
     opacity: 1;
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-basis: 80%;
+    min-width: 80%;
+    flex-direction: column;
+  }
 `
 const SliderBody = styled.div`
   flex-basis: 70%;
   display: flex;
   flex-wrap: wrap;
-  flex: auto;
   justify-content: space-evenly;
   align-content: center;
-  overflow: auto;
 `
 
 const LeftArrow = styled.div`

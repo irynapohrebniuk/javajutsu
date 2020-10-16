@@ -12,6 +12,7 @@ const SocialIconContainer = styled.div`
   z-index: 3;
   justify-content: center;
   margin-top: 3rem;
+  padding: 0;
 `
 
 const SocialIcon = styled.div`

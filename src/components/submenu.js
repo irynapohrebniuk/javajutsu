@@ -8,10 +8,14 @@ const StyledList = styled.ul`
   align-content: center;
   justify-content: space-evenly;
   z-index: 3;
-  padding: 0 1rem;
+  padding: 1rem;
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.19);
   margin-top: ${({open}) => (open)? '1rem' : '3rem'};
-  padding-bottom: 0.5rem;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex: 100%;
+    flex-direction: column;
+    margin-top: 0;
+  }
 `
 const StyledListItem = styled.li`
     :hover {
@@ -25,9 +29,16 @@ const StyledNavLink = styled(NavLink)`
   padding-bottom: 2px;
   color: black;
   border-bottom: 2px solid transparent;
-
+  padding-left: 1rem;
   :hover {
     border-bottom: 2px solid black;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    :hover {
+        border-left: 2px solid black;
+        border-bottom: none;
+  }
   }
 `
 

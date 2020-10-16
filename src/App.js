@@ -12,6 +12,7 @@ import { theme } from './styledComponents/theme'
 import { GlobalStyles } from './styledComponents/global'
 import styled from 'styled-components'
 import LogoIcon from './components/logoIcon';
+import Footer from './components/footer'
 
 const StyledNav = styled.nav`
   flex-basis: ${({ open }) => (open)? '30%' : '0'};
@@ -21,15 +22,16 @@ const StyledNav = styled.nav`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-basis: 100%;
     flex-direction: column;
-    min-height: 100vh;
     min-height: ${({ open }) => (open)? '100vh' : '0'};
   }
 `
 const StyledContent = styled.div`
   flex-basis: ${({ open }) => (open)? '70%' : '100%'};
   background-color: ${({ theme }) => theme.primaryLight};
+  min-height: 90vh;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    flex: 100%;
+    display: ${({ open }) => (open)? 'none' : 'flex'};
+    flex-basis: 100%;
     flex-direction: column;
   }
 `
@@ -75,7 +77,9 @@ function App() {
                 <Contact open={open} />
               </Route>
             </Switch>
+            
           </StyledContent>
+          <Footer open={open} />
         </StyledContainer>
       </Router >
     </ThemeProvider>
