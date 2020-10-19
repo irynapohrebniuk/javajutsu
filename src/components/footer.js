@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledFooter = styled.div`
-  position: fixed;
-  top: 90vh;
-  height: 10vh;
+  position: relative;
+  flex-basis: 100%;
   background-color: ${({theme}) => theme.primaryDark};
   width: 100%;
   z-index: 1;

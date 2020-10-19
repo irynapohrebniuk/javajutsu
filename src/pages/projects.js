@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProjectBlock from '../components/projectBlock'
 import StyledContainer from '../styledComponents/container.styled'
@@ -8,6 +8,7 @@ import StyledResponsiveImg from '../styledComponents/responsiveImg.styled'
 import StyledImageBlock from '../styledComponents/imageBlock.styled'
 import { projects } from '../db'
 import styled from 'styled-components'
+import { LanguageContext } from '../hooks'
 
 const Slider = styled.div`
   display: flex;
@@ -59,7 +60,7 @@ const LeftArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-right: 2rem solid ${({ theme }) => theme.primaryDark}; 
-  z-index: ${props => (props.disabled)? '-5' : '100'};
+  z-index: ${props => (props.disabled) ? '-5' : '100'};
   opacity: 0.5;
   :hover {
     opacity: 1;
@@ -73,7 +74,7 @@ const RightArrow = styled.div`
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
   border-left: 2rem solid ${({ theme }) => theme.primaryDark};
-  z-index: ${props => (props.disabled)? '-5' : '100'};
+  z-index: ${props => (props.disabled) ? '-5' : '100'};
   opacity: 0.5;
   :hover {
     opacity: 1;
@@ -83,15 +84,16 @@ const RightArrow = styled.div`
 const ProjectTitle = styled.div`
   padding: 0.5rem;
   background-color: gray;
-  color: ${({theme}) => theme.primaryLight}
+  color: ${({ theme }) => theme.primaryLight}
 `
 
 const Projects = ({ open }) => {
   const [active, setActive] = useState(0)
-
+  let { language, } = useContext(LanguageContext)
   let { slug } = useParams();
   let filteredProjects = projects.filter(project => project.tech.includes(slug))
   let renderedProjects = (filteredProjects.length === 0) ? projects : filteredProjects
+  let activeProject = renderedProjects[active]
   useEffect(() => {
 
   }, [active, filteredProjects, renderedProjects])
@@ -99,46 +101,44 @@ const Projects = ({ open }) => {
     <StyledContainer direction="column" open={open}>
       <SubMenu open={open} />
       <Slider>
-        <LeftArrow disabled =
-            {(active === 0) 
-            || filteredProjects.length === 1} 
-            onClick = {() => setActive(active - 1)}
+        <LeftArrow disabled=
+          {(active === 0)
+            || filteredProjects.length === 1}
+          onClick={() => setActive(active - 1)}
         />
         <SliderBody>
           {
             renderedProjects
               .map((project, index) =>
                 <Slide background={project.imgMobile}
-                  className={(index === active)? 'active' : ''}
+                  className={(index === active) ? 'active' : ''}
                   onClick={() => setActive(index)} key={'project' + index}>
-                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <ProjectTitle>{project[language].title}</ProjectTitle>
                 </Slide>
               )
           }
         </SliderBody>
-        
+
         <RightArrow disabled={
-            (active === (renderedProjects.length - 1)) 
-            || filteredProjects.length === 1} 
-            onClick = {() => {if (active < renderedProjects.length - 1) setActive(active + 1)}}/>
+          (active === (renderedProjects.length - 1))
+          || filteredProjects.length === 1}
+          onClick={() => { if (active < renderedProjects.length - 1) setActive(active + 1) }} />
       </Slider>
       {(renderedProjects[active]) && (
         <StyledSection direction='column'>
           <ProjectBlock
-            title={renderedProjects[active].title}
-            info={renderedProjects[active].info}
-            tech={renderedProjects[active].tech}
-            links={renderedProjects[active].links}
+            title={activeProject[language].title}
+            info={activeProject[language].info}
+            tech={activeProject.tech}
+            links={activeProject.links}
           >
           </ProjectBlock>
           <StyledImageBlock>
-            <StyledResponsiveImg src={renderedProjects[active].img} alt={renderedProjects[active].title} />
+            <StyledResponsiveImg src={activeProject.img} alt={activeProject[language].title} />
           </StyledImageBlock>
-          
-        </StyledSection>
-      )
 
-      }
+        </StyledSection>
+      )}
     </StyledContainer>
   )
 }

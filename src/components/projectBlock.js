@@ -31,6 +31,7 @@ const ExtLink = styled.a`
 `
 
 const ProjectBlock = (props) => {
+
   let { github, firebase } = props.links
   return (
     <StyledBlock direction='column'>
@@ -47,21 +48,27 @@ const ProjectBlock = (props) => {
         </StyledProjectList>
       </StyledTech>
 
-      <StyledProjectLink>
-        <h3>Repository:</h3>
-        <StyledContainer alignItems='center'>
-          <div><GithubIcon height='48' width='48' /></div>
-          <div><ExtLink href={github} target='_blank' rel="noopener">{github}</ExtLink></div>
-        </StyledContainer>
-      </StyledProjectLink>
+      {
+        (github) &&
+        <StyledProjectLink>
+          <h3>Repository:</h3>
+          <StyledContainer alignItems='center'>
+            <div><GithubIcon height='48' width='48' /></div>
+            <div><ExtLink href={github} target='_blank' rel="noopener">{github}</ExtLink></div>
+          </StyledContainer>
+        </StyledProjectLink>
+      }
 
-      <StyledProjectLink>
-        <h3>Demo:</h3>
-        <StyledContainer alignItems='center'>
-          <div><FirebaseIcon height='48' width='48' /></div>
-          <div><ExtLink href={firebase} target='_blank' rel="noopener">{firebase}</ExtLink></div>
-        </StyledContainer>
-      </StyledProjectLink>
+      {
+        (firebase) &&
+        <StyledProjectLink>
+          <h3>Demo:</h3>
+          <StyledContainer alignItems='center'>
+            <div><FirebaseIcon height='48' width='48' /></div>
+            <div><ExtLink href={firebase} target='_blank' rel="noopener">{firebase}</ExtLink></div>
+          </StyledContainer>
+        </StyledProjectLink>
+      }
 
     </StyledBlock>
   )

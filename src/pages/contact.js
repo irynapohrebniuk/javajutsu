@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import StyledSection from '../styledComponents/section.styled';
 
 const StyledTextarea = styled.textarea`
-  flex-basis: 50%;
-	min-height: 8rem;
+	height: 8rem;
 	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-color: ${({theme})=> theme.primaryLight };
+  width: 60%;
+	background-color: ${({ theme }) => theme.primaryLight};
 	background-position: bottom right;
   border: 1px solid gainsboro;
   box-shadow: 6px 8px 6px -6px rgba(0, 0, 0, 0.19);
@@ -16,18 +15,38 @@ const StyledTextarea = styled.textarea`
   }
 `
 
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.primaryDark};
+  width: auto;
+  border: none;
+  color: ${({ theme }) => theme.primaryLight};;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2rem;
+  width: 60%;
+`
+
 const Label = styled.div`
   margin-right: 1rem;
   flex-basis: auto;
   font-size: 1rem;
+  font-weight: 500;
+  margin: 1rem 0;
 `
 
 function Contact({ open }) {
   return (
-    <StyledSection open={open} justifyContent='flex-start' direction='column'>
-      <Label>Leave a message:</Label>
-      <StyledTextarea id="w3review" name="w3review" rows="4" cols="50" />
-    </StyledSection>
+    <>
+      <StyledSection open={open} direction='column' alignItems='center'>
+        <Label>Leave a message:</Label>
+        <StyledTextarea rows="4" cols="50" />
+        <Button>Send</Button>
+      </StyledSection>
+      
+    </>
   )
 }
 
