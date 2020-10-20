@@ -17,7 +17,7 @@ const Slider = styled.div`
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   flex-wrap: nowrap;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     min-width: 100%;

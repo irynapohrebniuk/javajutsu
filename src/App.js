@@ -60,7 +60,7 @@ function App() {
   return (
 
     <ThemeProvider theme={theme}>
-      <LanguageContext.Provider value={{language, setLanguage}}>
+      <LanguageContext.Provider value={{ language, setLanguage }}>
         <GlobalStyles />
         <Router>
           <StyledContainer direction='row' open={open}>
