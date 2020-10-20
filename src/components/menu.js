@@ -73,9 +73,9 @@ export const StyledLink = styled(Link)`
 `;
 
 const NavItems = (props) => {
-  const items = props.items.map((item) => 
+  const items = props.items.map((item, index) => 
     <NavItem key={'navItem_' + item}>
-      <StyledLink to={'/' + item} > {item} </StyledLink>
+      <StyledLink to={'/' + props.slugs[index]} > {item} </StyledLink>
     </NavItem>)
   return items
 }
@@ -87,7 +87,8 @@ const Menu = ({ open, setVisible }) => {
     <>
       <StyledMenu open={open}>
         <NavList open={open}>
-          <NavItems open={open} items={navItemsNames} onClick={(e)=> (e.target.innerText === 'Projects')? setVisible(true): setVisible(false)}></NavItems>
+          <NavItems open={open} items={navItemsNames} slugs={menuItems['en']} 
+            onClick={(e)=> ((e.target.innerText === 'Projects') || (e.target.innerText === 'Projekty') || (e.target.innerText === 'Проекты'))? setVisible(true): setVisible(false)}></NavItems>
         </NavList>
         <SocialMenu open={open} />
         <StyledTriangle open={open} />

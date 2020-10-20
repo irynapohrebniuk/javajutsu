@@ -48,12 +48,13 @@ const StyledNavLink = styled(NavLink)`
 const SubMenu = ({open}) => {
     const { language, } = useContext(LanguageContext)
     const filterItems = subMenuItems[language]
+    const filterItemsSlug = subMenuItems['en']
     return (
         <StyledList open={open}>
             {
                 filterItems.map((item, index) =>
                     <StyledListItem key={index}>
-                        <StyledNavLink to={'/projects/' + item}>
+                        <StyledNavLink to={'/projects/' + filterItemsSlug[index]}>
                             {item}
                         </StyledNavLink>
                     </StyledListItem>)

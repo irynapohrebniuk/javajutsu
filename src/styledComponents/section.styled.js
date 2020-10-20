@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
+    margin-top: ${(props) => (props.top) ? props.top : "0"};
     justify-content: ${(props) => (props.justifyContent) ? props.justifyContent : "flex-start"};
     padding: 1rem 2rem;
     min-height: 90vh;
