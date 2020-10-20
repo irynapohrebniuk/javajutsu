@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
 import { Link } from 'react-router-dom'
 import SocialMenu from './socialmenu'
+import { LanguageContext } from '../hooks'
+import { menuItems } from '../db'
 
 export const StyledMenu = styled.nav`
   flex-basis: ${({ open }) => (open)? '30%' : '0'};
@@ -70,8 +72,6 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-const navItemsNames = ['Projects', 'About', 'Contact']
-
 const NavItems = (props) => {
   const items = props.items.map((item) => 
     <NavItem key={'navItem_' + item}>
@@ -81,7 +81,8 @@ const NavItems = (props) => {
 }
 
 const Menu = ({ open, setVisible }) => {
-  
+  const { language, } = useContext(LanguageContext)
+  const navItemsNames = menuItems[language]
   return (
     <>
       <StyledMenu open={open}>

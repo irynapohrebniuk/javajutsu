@@ -148,4 +148,16 @@ const projects = [
   }
 ]
 
-export { projects }
+const menuItems = {
+  "en": ['Projects', 'About', 'Contact'],
+  "pl": ['Projekty', 'O mnie', 'Kontakt'],
+  "ru": ['Проекты', 'Обо мне', 'Контакты']
+}
+
+const subMenuItems = {
+ "en": ['All', 'React', 'Angular', 'Vanilla JS'],
+ "pl": ['Wszystkie','React', 'Angular', 'Vanilla JS'],
+ "ru": ['Все', 'React', 'Angular', 'Vanilla JS']
+}
+
+export { projects, menuItems, subMenuItems }

@@ -38,6 +38,7 @@ const Slide = styled.div`
   box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.19);
   :hover {
     opacity: 1;
+    cursor: pointer;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-basis: 80%;

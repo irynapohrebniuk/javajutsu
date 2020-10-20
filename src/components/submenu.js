@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { subMenuItems } from '../db'
+import { LanguageContext } from '../hooks'
 
 const StyledList = styled.ul`
   list-style-type: none;
@@ -8,7 +10,7 @@ const StyledList = styled.ul`
   align-content: center;
   justify-content: space-evenly;
   z-index: 3;
-  padding: 1rem;
+  padding: 1rem 3rem 1rem 1rem;
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.19);
   margin-top: ${({open}) => (open)? '1rem' : '3rem'};
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -29,7 +31,7 @@ const StyledNavLink = styled(NavLink)`
   padding-bottom: 2px;
   color: black;
   border-bottom: 2px solid transparent;
-  padding-left: 1rem;
+  margin-left: 1rem;
   :hover {
     border-bottom: 2px solid black;
   }
@@ -42,8 +44,10 @@ const StyledNavLink = styled(NavLink)`
   }
 `
 
+
 const SubMenu = ({open}) => {
-    const filterItems = ['All', 'React', 'Angular', 'Vanilla JS']
+    const { language, } = useContext(LanguageContext)
+    const filterItems = subMenuItems[language]
     return (
         <StyledList open={open}>
             {
