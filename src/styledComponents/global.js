@@ -47,4 +47,11 @@ export const GlobalStyles = createGlobalStyle`
   .active {
     opacity: 1;
   }
+
+  a {
+    color: #1b175c;
+    :hover {
+      color: #1b175c;
+    }
+  }
 `

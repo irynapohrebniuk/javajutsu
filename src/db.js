@@ -160,4 +160,22 @@ const subMenuItems = {
  "ru": ['Все', 'React', 'Angular', 'Vanilla JS']
 }
 
-export { projects, menuItems, subMenuItems }
+const about = {
+  "en": {
+    "about_body": "Hi, I'm Iryna and I'm glad to see you on my page.",
+    "about_footer": "My projects on",
+    "about_button": "See my projects"
+  },
+  "pl": {
+    "about_body": "Cześć, jestem Iryna i cieszę się, że jesteś na mojej stronie.",
+    "about_footer": "Moje projekty są na",
+    "about_button": "Obejrzeć projekty"
+  },
+  "ru": {
+    "about_body": "Привет, я Ирина и рада видеть Вас на моей страничке.",
+    "about_footer": "Мои проекты на",
+    "about_button": "Cмотреть проекты"
+  }
+}
+
+export { projects, menuItems, subMenuItems, about }
