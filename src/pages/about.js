@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import StyledSection from '../styledComponents/section.styled'
-import Girl from '../img/svg-components/girl-laptop.svg'
+import Girl from '../img/svg/girl-laptop.svg'
 import StyledResponsiveImg from '../styledComponents/responsiveImg.styled'
 import styled from 'styled-components'
 import Button from '../components/button'

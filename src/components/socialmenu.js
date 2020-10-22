@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import InstagramIcon from '../img/svg-components/instagramIcon'
-import FacebookIcon from '../img/svg-components/facebookIcon'
-import LinkedinIcon from '../img/svg-components/linkedinIcon'
+import InstagramIcon from '../img/svg/instagramIcon'
+import FacebookIcon from '../img/svg/facebookIcon'
+import LinkedinIcon from '../img/svg/linkedinIcon'
 import { theme } from '../styledComponents/theme'
+import GithubIcon from './githubIcon'
 
-const colorIcon = theme.primaryLight;
+
 
 const SocialIconContainer = styled.div`
   display: ${({ open }) => (open)? 'flex' : 'none'};
@@ -24,10 +25,11 @@ const SocialIcon = styled.div`
   margin: 1rem;
 `
 
-const SocialMenu = ({open}) => {
+const SocialMenu = (props) => {
+  const colorIcon = (props.color)? theme.primaryDark : theme.primaryLight;
   return (
     <div>
-      <SocialIconContainer open={open}>
+      <SocialIconContainer open={props.open}>
         <SocialIcon>
         <a href='https://www.instagram.com/iryna.pohrebniuk/'><InstagramIcon color={colorIcon} /></a>
         </SocialIcon>
@@ -37,6 +39,10 @@ const SocialMenu = ({open}) => {
         <SocialIcon>
           <a href='https://www.linkedin.com/in/iryna-pohrebniuk/'><LinkedinIcon color={colorIcon} /></a>
         </SocialIcon>
+        <SocialIcon>
+          <a href='https://www.linkedin.com/in/iryna-pohrebniuk/'><GithubIcon height='48' width='48' color={colorIcon}/></a>
+        </SocialIcon>
+        
       </SocialIconContainer>
     </div>
   )

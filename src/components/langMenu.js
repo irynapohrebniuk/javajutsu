@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { LanguageContext } from '../hooks'
-import flag_en from '../img/svg-components/united-kingdom.svg'
-import flag_pl from '../img/svg-components/poland.svg'
-import flag_ru from '../img/svg-components/russia.svg'
+import flag_en from '../img/svg/united-kingdom.svg'
+import flag_pl from '../img/svg/poland.svg'
+import flag_ru from '../img/svg/russia.svg'
 
 const Main = styled.div`
   position: absolute;

@@ -49,9 +49,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: #1b175c;
+    color: ${({ theme }) => theme.primaryDark};
+    text-decoration: none;
     :hover {
-      color: #1b175c;
+      color: ${({ theme }) => theme.primaryDark};
     }
   }
 `

@@ -67,7 +67,7 @@ export const StyledLink = styled(Link)`
     font-size: 1.5rem;
   }
 
-  &:hover {
+  :hover {
     color: ${({ theme }) => theme.primaryHover};
   }
 `;

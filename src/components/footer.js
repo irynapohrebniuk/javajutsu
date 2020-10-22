@@ -20,14 +20,14 @@ const Footer = ({open}) => {
         <StyledFooter open={open}>
             Icons made by &nbsp;  
             <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">
-            Pixel perfect 
-            </a> &nbsp; from&nbsp; 
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
-            <br />Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> 
-            &nbsp;from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+            Pixel perfect, </a>
+             &nbsp; 
+             <a href="https://www.flaticon.com/authors/google" title="Google">Google, </a>
+             &nbsp;
+             <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+             &nbsp;
+             from &nbsp; 
+             <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
         </StyledFooter>
     )
 }
