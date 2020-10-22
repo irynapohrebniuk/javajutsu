@@ -14,6 +14,7 @@ export const StyledMenu = styled.nav`
   background: ${({ theme, open }) => (open)? theme.primaryDark : theme.primaryLight};
   transition: background-color 0.5s ease-in-out;
   z-index: 3;
+  background-image: url('../img/svg/bg-project.svg');
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-basis: 100%;
     flex-direction: column;

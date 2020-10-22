@@ -24,7 +24,10 @@ const About = ({ open }) => {
   const {language, } = useContext(LanguageContext)
 
   return (
-    <StyledSection direction="row" alignItems="center" open={open} justifyContent="center" top="4rem">
+    <StyledSection direction="row" alignItems="center" open={open} top="4rem">
+      <StyledSection basis='40rem'>
+        <StyledResponsiveImg src={Girl} alt="Girl-illustration" width="100%" />
+      </StyledSection>
       <StyledSection direction="column">
         <h2>{about[language].about_body}</h2>
         <CenterDiv>
@@ -35,9 +38,7 @@ const About = ({ open }) => {
           <Div><a href='https://github.com/irynapohrebniuk'><GithubIcon height='48' width='48' /></a></Div>
         </StyledSection>
       </StyledSection>
-      <StyledSection>
-        <StyledResponsiveImg src={Girl} alt="Girl-illustration" width="50%" />
-      </StyledSection>
+      
     </StyledSection>
   )
 }
