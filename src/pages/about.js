@@ -16,6 +16,7 @@ const CenterDiv = styled.div`
 `
 
 const Div = styled.div`
+  display: inline-block;
   margin-left: 1rem;
 `
 
@@ -24,7 +25,7 @@ const About = ({ open }) => {
   const {language, } = useContext(LanguageContext)
 
   return (
-    <StyledSection direction="row" alignItems="center" open={open} top="4rem">
+    <StyledSection direction="row" alignItems="center" open={open}>
       <StyledSection basis='40rem'>
         <StyledResponsiveImg src={Girl} alt="Girl-illustration" width="100%" />
       </StyledSection>

@@ -9,7 +9,6 @@ import StyledImageBlock from '../styledComponents/imageBlock.styled'
 import { projects } from '../db'
 import styled from 'styled-components'
 import { LanguageContext } from '../hooks'
-import bg from '../img/bg-1280x800.png'
 
 const Slider = styled.div`
   display: flex;
@@ -19,8 +18,6 @@ const Slider = styled.div`
   align-items: center;
   padding: 1rem;
   flex-wrap: nowrap;
-  /* background-image: url(${bg});
-  background-size: 100%; */
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-basis: 100%;
   }
@@ -28,7 +25,6 @@ const Slider = styled.div`
 
 const Slide = styled.div`
   flex-basis: 20%;
-  min-width: 25%;
   height: 10rem;
   margin: 0.5rem;
   opacity: 0.6;
@@ -37,9 +33,9 @@ const Slide = styled.div`
   text-align: right;
   color: ${({ theme }) => theme.primaryDark};
   background-image: url(${props => props.background});
-  background-position: center;
+  background-position: center right;
   border-radius: 1rem;
-  box-shadow: 8px 8px 8px 2px rgba(0, 0, 0, 0.19);
+  box-shadow: 8px 8px 8px -2px rgba(0, 0, 0, 0.19);
   :hover {
     opacity: 1;
     cursor: pointer;
@@ -54,12 +50,12 @@ const SliderBody = styled.div`
   width: auto;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: ${(props) => (props.size <= 1) ? 'center' : 'flex-start'};
+  justify-content: center;
   align-content: center;
-  overflow-x: auto;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-basis: 90%;
     overflow-x: scroll;
+    justify-content: ${(props) => (props.size <= 1) ? 'center' : 'flex-start'};
     ::-webkit-scrollbar {
       width: 5px;
     }

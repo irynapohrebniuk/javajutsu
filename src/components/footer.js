@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledFooter = styled.div`
   position: relative;
   flex-basis: 100%;
-  background-color: ${({theme}) => theme.primaryDark};
+  background-color: ${({theme}) => theme.footerColor};
   width: 100%;
   z-index: 1;
   margin: 0;
